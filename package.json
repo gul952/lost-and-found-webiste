@@ -1,0 +1,24 @@
+{
+  "name": "nust-lost-found",
+  "version": "1.0.0",
+  "description": "NUST Lost and Found System",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "multer": "^1.4.4-lts.1"
+  }
+}
+
+
+
+
+
+
+
+
+
+
+

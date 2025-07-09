@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NUST Lost & Found</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@4.9.0"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@tensorflow-models/universal-sentence-encoder"></script>
+</head>
+<body>
+  <header>
+    <h1>NUST Lost & Found</h1>
+    <nav>
+      <button id="helpButton" aria-label="Help Information" role="button">Help</button>
+    </nav>
+  </header>
+
+  <main>
+    <section id="upload" style="background-image: url('nust-background.png');">
+      <h2>Upload Lost or Found Items</h2>
+      <form id="uploadForm">
+        <label for="name">Your Name:</label>
+        <input type="text" id="name" name="name" required>
+
+        <label for="cmsId">CMS ID:</label>
+        <input type="text" id="cmsId" name="cmsId" required>
+
+        <label for="location">Location:</label>
+        <select id="location" name="location" required>
+          <option value="C1 ">C1 </option>
+          <option value="C2 ">C2 </option>
+          <option value="Library (Main Library)">Library (Main Library)</option>
+          <option value="SMME Cafeteria">SMME Cafeteria</option>
+          <option value="Central Park">Central Park</option>
+          <option value="Football Grounds">Football Grounds</option>
+          <option value="Sports Complex">Sports Complex</option>
+          <option value="NUST Guest House">NUST Guest House</option>
+          <option value="NUST Auditorium">NUST Auditorium</option>
+          <option value="NSS Office">NSS Office</option>
+          <option value="G1 (Main Entrance)">G1 (Main Entrance)</option>
+          <option value="Hostels">Hostels</option>
+          <option value="Administration Building">Administration Building</option>
+          <option value="Parking Areas">Parking Areas</option>
+          <option value="SMME Auditorium">SMME Auditorium</option>
+          <option value="SEECS Building A">SEECS Building A</option>
+        </select>
+
+        <label for="status">Status:</label>
+        <select id="status" name="status" required>
+          <option value="Lost">Lost</option>
+          <option value="Found">Found</option>
+        </select>
+
+        <label for="description">Description:</label>
+        <textarea id="description" name="description" placeholder="Enter item details, color, brand, or other identifying features." required></textarea>
+
+        <label for="image">Upload Image:</label>
+        <input type="file" id="image" name="image" accept="image/*" required>
+
+        <button type="submit">Upload</button>
+      </form>
+    </section>
+
+    <section id="filters">
+      <h2>Filter Items</h2>
+      <label for="filterLocation">Filter by Location:</label>
+      <select id="filterLocation">
+        <option value="All">All Locations</option>
+        <option value="C1 ">C1 </option>
+        <option value="C2 ">C2 </option>
+        <option value="Library (Main Library)">Library (Main Library)</option>
+        <option value="SMME Cafeteria">SMME Cafeteria</option>
+        <option value="Central Park">Central Park</option>
+        <option value="Football Grounds">Football Grounds</option>
+        <option value="Sports Complex">Sports Complex</option>
+        <option value="NUST Guest House">NUST Guest House</option>
+        <option value="NUST Auditorium">NUST Auditorium</option>
+        <option value="NSS Office">NSS Office</option>
+        <option value="G1 (Main Entrance)">G1 (Main Entrance)</option>
+        <option value="Hostels">Hostels</option>
+        <option value="Administration Building">Administration Building</option>
+        <option value="Parking Areas">Parking Areas</option>
+        <option value="SMME Auditorium">SMME Auditorium</option>
+        <option value="SEECS Building A">SEECS Building A</option>
+      </select>
+
+      <label for="filterStatus">Filter by Status:</label>
+      <select id="filterStatus">
+        <option value="All">All Items</option>
+        <option value="Lost">Lost</option>
+        <option value="Found">Found</option>
+      </select>
+    </section>
+
+    <section id="items">
+      <h2>Lost and Found Items</h2>
+      <div id="itemsList"></div>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 NUST Lost & Found</p>
+  </footer>
+
+  <div id="helpModal" class="modal">
+    <div class="modal-content">
+      <span class="close-button">&times;</span>
+      <h2>Help</h2>
+      <p>Here is the information about different locations and their lost and found websites:</p>
+      <ul>
+        <option value="C1">C1 - 0312-1234567</option>
+        <option value="C2">C2 - 0321-2345678</option>
+        <option value="Library (Main Library)">Library - 0300-3456789</option>
+        <option value="SMME Cafeteria">SMME Cafeteria - 0333-4567890</option>
+        <option value="Central Park">Central Park - 0345-5678901</option>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Chatbot Modal -->
+  <div id="chatbot" class="chatbot">
+    <div id="chatbotHeader" class="chatbot-header">
+      Assistant <span id="chatbotClose" class="chatbot-close">&times;</span>
+    </div>
+    <div id="chatbotContent" class="chatbot-content"></div>
+    <input type="text" id="chatbotInput" placeholder="Type your question..." />
+  </div>
+
+  <!-- Chatbot Button -->
+  <button id="chatbotButton" class="chatbot-button">Chat</button>
+
+  <script src="scripts.js"></script>
+</body>
+</html>

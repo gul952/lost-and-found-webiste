@@ -1,0 +1,273 @@
+/* General Styles */
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  background-color: #f4f7fc; /* Light gray background */
+  color: #333; /* Text color */
+}
+
+header {
+  background-color: #003366; /* NUST dark blue */
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+#logo {
+  width: 120px;
+  display: block;
+  margin: 0 auto 10px;
+}
+
+h1 {
+  margin: 0;
+  font-size: 2.5rem;
+}
+
+#upload {
+  padding: 20px;
+  background-size: cover;
+  color: #333;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+label {
+  margin: 10px 0 5px;
+}
+
+input, select, textarea, button {
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+button {
+  background-color: #005e97; /* NUST blue */
+  color: white;
+  border: none;
+  padding: 12px 16px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+button:hover {
+  background-color: #003366; /* Darken on hover */
+}
+
+#filters {
+  padding: 20px;
+  text-align: center;
+}
+
+/* Updated to Grid layout for items (3 images per row) */
+#itemsList {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 equal-width columns */
+  gap: 20px; /* Add space between items */
+  padding: 20px;
+  justify-content: center;
+}
+
+/* Styling for individual items in the list */
+.item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  background-color: white;
+  max-width: 100%;  /* Ensure items don't exceed the container width */
+}
+
+/* Style the images to prevent them from being too large */
+.item img {
+  width: 100%;  /* Make the image take up the full width of the container */
+  height: auto;  /* Maintain aspect ratio */
+  max-width: 250px;  /* Optional: Set a max width to prevent images from being too large */
+  border-radius: 5px;  /* Optional: Add rounded corners to images */
+}
+
+/* Footer styles */
+footer {
+  text-align: center;
+  background-color: #003366; /* NUST dark blue */
+  color: white;
+  padding: 10px 0;
+  margin-top: 20px;
+}
+
+/* Modal styles */
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  justify-content: center;  /* Center horizontally */
+  align-items: center;  /* Center vertically */
+  z-index: 1000;  /* Ensure it's on top */
+}
+
+.modal-content {
+  background: white;
+  padding: 20px;
+  border-radius: 5px;
+  max-width: 400px;
+  text-align: center;
+}
+
+.close-button {
+  float: right;
+  cursor: pointer;
+  font-size: 20px;
+}
+
+
+
+
+/* Chatbot Styles */
+.chatbot {
+  display: none;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 320px;
+  height: 450px;
+  background: #fff;
+  border: 2px solid #005e97; /* NUST blue border */
+  border-radius: 15px; /* More rounded corners */
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2); /* Softer shadow */
+  overflow: hidden;
+  z-index: 1000;
+  font-family: 'Comic Sans MS', sans-serif; /* Friendly font */
+}
+
+.chatbot-header {
+  background: #005e97; /* NUST blue background */
+  color: #fff;
+  padding: 15px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+}
+
+.chatbot-header span {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.chatbot-header button {
+  background: none;
+  border: none;
+  color: #fff;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.chatbot-content {
+  padding: 10px;
+  overflow-y: auto;
+  height: calc(100% - 90px);
+  background-color: #f1f1f1; /* Light gray background */
+}
+
+.chatbot-content .chatbot-message {
+  margin: 10px 0;
+  padding: 10px;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.chatbot-content .user-message {
+  background: #b8cfff; /* Light pink background */
+  color: #fff;
+  align-self: flex-end;
+  text-align: right;
+}
+
+.chatbot-content .assistant-message {
+  background: #87cefa; /* Light blue background */
+  color: #000;
+  text-align: left;
+}
+
+.chatbot-input {
+  padding: 10px;
+  border-top: 1px solid #ccc;
+}
+
+#chatbotInput {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+}
+
+#chatbotButton {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: #051048; /* Light pink background */
+  color: #fff;
+  border: none;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  font-size: 24px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: background-color 0.3s;
+}
+
+#chatbotButton:hover {
+  background-color: #28428f; /* Darker pink */
+}
+
+#chatbotButton:focus {
+  outline: none;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  #itemsList {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+  }
+}
+
+@media (max-width: 480px) {
+  #itemsList {
+    grid-template-columns: 1fr; /* 1 column on very small screens */
+  }
+}
+
+
+
+
+
+
